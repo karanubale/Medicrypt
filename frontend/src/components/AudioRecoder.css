@@ -1,0 +1,76 @@
+.audio-recorder-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .audio-recorder-heading {
+    text-align: center;
+    color: #333;
+  }
+  
+  .audio-recorder-section {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .audio-recorder-subheading {
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .audio-recorder-button-start,
+  .audio-recorder-button-stop,
+  .audio-recorder-button-process {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .audio-recorder-button-start {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .audio-recorder-button-stop {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .audio-recorder-button-process {
+    background-color: #008cba;
+    color: white;
+  }
+  
+  .audio-recorder-file-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  .audio-recorder-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .audio-recorder-table th,
+  .audio-recorder-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .audio-recorder-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .audio-recorder-table tr:hover {
+    background-color: #ddd;
+  }
+  

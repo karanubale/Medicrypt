@@ -1,0 +1,9 @@
+# Ignore the virtual environment
+venv/
+
+# Other files or directories you might want to ignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
