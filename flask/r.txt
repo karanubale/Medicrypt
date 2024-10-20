@@ -1,0 +1,6 @@
+Flask
+SpeechRecognition
+python-docx
+python-dotenv
+sounddevice
+scipy
