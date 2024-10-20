@@ -65,9 +65,10 @@ const AudioRecorder = () => {
         }
         const formData = new FormData();
         formData.append("audio", audioFile);
+    
         try {
             const response = await axios.post(
-                `${process.env.REACT_APP_FLASK_API_URL}/process_audio`,
+                `${process.env.REACT_APP_FLASK_API_URL}/process_audio`, // Make sure this environment variable is set
                 formData
             );
             setPrescriptionData(response.data);
@@ -76,6 +77,7 @@ const AudioRecorder = () => {
             alert("There was an error processing the audio. Please try again.");
         }
     };
+    
 
     return (
         <div className="audio-recorder-container">

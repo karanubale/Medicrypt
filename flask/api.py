@@ -5,16 +5,14 @@ app = Flask(__name__)
 @app.route('/process_audio', methods=['POST'])
 def process_audio():
     if 'audio' not in request.files:
-        return jsonify({"error": "No audio file uploaded"}), 400
-    
+        return jsonify({'error': 'No audio file provided.'}), 400
+
     audio_file = request.files['audio']
-    # Perform audio processing here
+     
+    # Here, add your logic to process the audio file.
     
-    # Example response
-    return jsonify({
-        "patient_name": "John Doe",
-        "age": 30,
-        "gender": "Male",
-        "chief_complaint": "Headache",
-        # Additional prescription data
-    })
+    return jsonify({'message': 'Audio processed successfully.'})
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
