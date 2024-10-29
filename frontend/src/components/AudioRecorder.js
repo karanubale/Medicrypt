@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './AudioRecoder.css'; // Import the CSS file
+import './AudioRecoder.css';
 
 const AudioRecorder = () => {
     const [isRecording, setIsRecording] = useState(false);
     const [mediaRecorder, setMediaRecorder] = useState(null);
     const [audioFile, setAudioFile] = useState(null);
-    const [audioURL, setAudioURL] = useState(null); // For audio preview
+    const [audioURL, setAudioURL] = useState(null);
     const [prescriptionData, setPrescriptionData] = useState(null);
 
     useEffect(() => {
-        // Request user permission to access microphone
         if (isRecording) {
             startRecording();
         } else {
@@ -21,11 +20,10 @@ const AudioRecorder = () => {
     const handleAudioInputChange = (event) => {
         const file = event.target.files[0];
         setAudioFile(file);
-        setAudioURL(URL.createObjectURL(file)); // Preview for uploaded file
+        setAudioURL(URL.createObjectURL(file));
     };
 
     const startRecording = () => {
-        // Request permission for audio recording
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(stream => {
                 const recorder = new MediaRecorder(stream);
@@ -58,6 +56,22 @@ const AudioRecorder = () => {
         }
     };
 
+    const parsePrescription = (prescriptionText) => {
+        const prescriptionLines = prescriptionText.split("\n").filter(line => line.trim() !== '');
+        const prescriptionData = {};
+
+        prescriptionLines.forEach(line => {
+            const match = line.match(/- \*\*(.*?)\:\*\* (.*)/);
+            if (match) {
+                const key = match[1].replace(/\s+/g, '_').toLowerCase(); // Convert key to snake_case
+                const value = match[2].trim();
+                prescriptionData[key] = value;
+            }
+        });
+
+        return prescriptionData;
+    };
+
     const processAudio = async () => {
         if (!audioFile) {
             alert("Please upload an audio file or record one.");
@@ -65,25 +79,28 @@ const AudioRecorder = () => {
         }
         const formData = new FormData();
         formData.append("audio", audioFile);
-    
+
         try {
             const response = await axios.post(
-                `${process.env.REACT_APP_FLASK_API_URL}/process_audio`, // Make sure this environment variable is set
+                `${process.env.REACT_APP_FLASK_API_URL}/process_audio`,
                 formData
             );
-            setPrescriptionData(response.data);
+
+            // Convert the prescription text to JSON
+            const prescriptionJSON = parsePrescription(response.data.prescription);
+
+            // Save to state
+            setPrescriptionData(prescriptionJSON);
         } catch (error) {
             console.error("Error processing audio:", error);
             alert("There was an error processing the audio. Please try again.");
         }
     };
-    
 
     return (
         <div className="audio-recorder-container">
             <h2 className="audio-recorder-heading">Audio Recorder</h2>
 
-            {/* Recording Section */}
             <div className="audio-recorder-section">
                 <button
                     className={isRecording ? "audio-recorder-button-stop" : "audio-recorder-button-start"}
@@ -93,7 +110,6 @@ const AudioRecorder = () => {
                 </button>
             </div>
 
-            {/* Upload Section */}
             <div className="audio-recorder-section">
                 <label htmlFor="audio-upload">Upload Audio File: </label>
                 <input
@@ -105,7 +121,6 @@ const AudioRecorder = () => {
                 />
             </div>
 
-            {/* Audio Preview */}
             {audioURL && (
                 <div className="audio-recorder-section">
                     <h3>Audio Preview</h3>
@@ -113,63 +128,27 @@ const AudioRecorder = () => {
                 </div>
             )}
 
-            {/* Process Audio Button */}
             <div className="audio-recorder-section">
                 <button className="audio-recorder-button-process" onClick={processAudio}>
                     Process Audio
                 </button>
             </div>
-
-            {/* Display Prescription in Table */}
             {prescriptionData && (
                 <div>
                     <h3>Generated Prescription</h3>
                     <table className="audio-recorder-table">
                         <tbody>
-                            <tr>
-                                <td>Patient's Name</td>
-                                <td>{prescriptionData.patient_name}</td>
-                            </tr>
-                            <tr>
-                                <td>Age</td>
-                                <td>{prescriptionData.age}</td>
-                            </tr>
-                            <tr>
-                                <td>Gender</td>
-                                <td>{prescriptionData.gender}</td>
-                            </tr>
-                            <tr>
-                                <td>Chief Complaint</td>
-                                <td>{prescriptionData.chief_complaint}</td>
-                            </tr>
-                            <tr>
-                                <td>Medical History</td>
-                                <td>{prescriptionData.medical_history}</td>
-                            </tr>
-                            <tr>
-                                <td>Medications</td>
-                                <td>{prescriptionData.medications}</td>
-                            </tr>
-                            <tr>
-                                <td>Allergies</td>
-                                <td>{prescriptionData.allergies}</td>
-                            </tr>
-                            <tr>
-                                <td>Diagnosis</td>
-                                <td>{prescriptionData.diagnosis}</td>
-                            </tr>
-                            <tr>
-                                <td>Treatment Plan</td>
-                                <td>{prescriptionData.treatment_plan}</td>
-                            </tr>
-                            <tr>
-                                <td>Follow-up Instructions</td>
-                                <td>{prescriptionData.follow_up}</td>
-                            </tr>
+                            {Object.entries(prescriptionData).map(([key, value]) => (
+                                <tr key={key}>
+                                    <td>{key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase())}</td>
+                                    <td>{value || "Not mentioned"}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
             )}
+
         </div>
     );
 };

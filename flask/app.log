@@ -8,3 +8,6 @@ Error calling Groq API: 401 Client Error: Unauthorized for url: https://api.groq
 Error calling Groq API: 401 Client Error: Unauthorized for url: https://api.groq.com/openai/v1/chat/completions
 Error calling Groq API: 401 Client Error: Unauthorized for url: https://api.groq.com/openai/v1/chat/completions
 Error calling Groq API: 401 Client Error: Unauthorized for url: https://api.groq.com/openai/v1/chat/completions
+Unexpected error: Audio file could not be read as PCM WAV, AIFF/AIFF-C, or Native FLAC; check if file is corrupted or in another format
+Unexpected error: Audio file could not be read as PCM WAV, AIFF/AIFF-C, or Native FLAC; check if file is corrupted or in another format
+Unexpected error: Audio file could not be read as PCM WAV, AIFF/AIFF-C, or Native FLAC; check if file is corrupted or in another format

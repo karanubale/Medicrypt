@@ -10,12 +10,16 @@ from datetime import datetime
 from docx.shared import Pt
 from docx.oxml.ns import qn
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+from flask_cors import CORS, cross_origin
+import json
 
 # Load environment variables from a .env file
 load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Load configuration from environment variables
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
@@ -102,6 +106,7 @@ def get_groq_response(text):
     }
     try:
         response = requests.post(f"{GROQ_BASE_URL}/chat/completions", headers=headers, json=data)
+        print(response)
         response.raise_for_status()
         return response.json()["choices"][0]["message"]["content"]
     except requests.exceptions.RequestException as e:
@@ -109,6 +114,7 @@ def get_groq_response(text):
         return str(e)
 
 @app.route('/process_audio', methods=['POST'])
+@cross_origin()
 def process_audio():
     """Endpoint to process an audio file and return a prescription report."""
     if 'audio' not in request.files:
@@ -126,6 +132,7 @@ def process_audio():
             audio = recognizer.listen(source)
         text = recognizer.recognize_google(audio)
         groq_response = get_groq_response(text)
+        print(groq_response)
         document_name = "Groq_Prescription_Report"
         document_path = create_document_from_groq_response(groq_response, document_name)
         return jsonify({'prescription': groq_response, 'document_path': document_path})
@@ -142,6 +149,7 @@ def process_audio():
 
 
 @app.route('/process_text', methods=['POST'])
+@cross_origin()
 def process_text():
     """Endpoint to process a text input and return a prescription report."""
     data = request.get_json()
@@ -159,4 +167,4 @@ def process_text():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.getenv("PORT", 5000)), debug=os.getenv("DEBUG", "False") == "True")
+    app.run(host='localhost', port=int(os.getenv("PORT", 5000)), debug=os.getenv("DEBUG", "False") == "True")

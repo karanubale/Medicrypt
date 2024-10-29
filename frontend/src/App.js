@@ -5,13 +5,13 @@ import AudioRecorder from './components/AudioRecorder';
 import axios from 'axios';
 const App = () => {
 
-  const fetchAPI = async () => {
-    const response = await axios.get("http://localhost:8080/api/users");
-    console.log(response);
-  }
-  useEffect(() => {
-    fetchAPI();
-  }, [])
+  // const fetchAPI = async () => {
+  //   const response = await axios.get("http://localhost:8080/api/users");
+  //   console.log(response);
+  // }
+  // useEffect(() => {
+  //   fetchAPI();
+  // }, [])
 
   return (
     <div>
