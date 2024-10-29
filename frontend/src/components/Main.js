@@ -5,7 +5,6 @@ const Main = () => {
     return (
         <div>
             <main role="main">
-
                 <div className="jumbotron">
                     <div className="container">
                         <h1 className="display-3 my-4">Medicrypt</h1>
