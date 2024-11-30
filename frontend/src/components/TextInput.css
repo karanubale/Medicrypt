@@ -1,0 +1,401 @@
+.text-input-container {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.text-input-box {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.prescription-output {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.prescription-output h3 {
+  color: #333;
+}
+
+.prescription-output pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.action-buttons {
+  margin-top: 10px;
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.download-button,
+.email-button {
+  padding: 8px 16px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover,
+.email-button:hover {
+  background-color: #1976D2;
+}
+
+.email-button {
+  background-color: #FF9800;
+}
+
+.email-button:hover {
+  background-color: #FB8C00;
+}
+
+
+
+
+.text-input-container {
+  width: 95%;
+  /* max-width: 600px; */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+}
+
+.text-input-box {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.submit-button,
+.download-button,
+.email-button {
+  /* background-color: #007bff; */
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+}
+
+.action-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.prescription-output {
+  margin-top: 20px;
+}
+
+.prescription-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.prescription-table th,
+.prescription-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.prescription-table th {
+  background-color: #f2f2f2;
+}
+
+.prescription-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.prescription-table tr:hover {
+  background-color: #eaeaea;
+}
+
+
+
+
+.audio-recorder-table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.audio-recorder-table th,
+.audio-recorder-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.audio-recorder-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.audio-recorder-table tr:hover {
+  background-color: #ddd;
+}
+
+
+
+.delbtn{
+  width: 100%;
+  padding: 5px;          
+
+  border: none;  
+  color: white; 
+  border-radius: 4px;  
+  cursor: pointer;
+  background-color: #f44336;
+}
+
+
+
+
+
+
+
+.submit-button {
+  background-color: #4caf50; 
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #45a049; 
+}
+
+
+.download-button,
+.email-button,
+.audio-recorder-button-download {
+  background-color: #4CAF50; 
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover,
+.email-button:hover,
+.audio-recorder-button-download:hover {
+  background-color: #45a049; 
+}
+
+
+.delbtn {
+  background-color: #f44336; 
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.delbtn:hover {
+  background-color: #e63946; 
+}
+
+
+.new-record-add-button {
+  background-color: #008cba;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-record-add-button:hover {
+  background-color: #007bb5; 
+}
+
+.new-record-close-button {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-record-close-button:hover {
+  background-color: #e63946; 
+}
+
+
+
+
+.email-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.email-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.email-modal-content h3 {
+  margin-bottom: 15px;
+}
+
+.email-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.email-send-button,
+.email-close-button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.email-send-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.email-close-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.email-send-button:hover {
+  background-color: #45a049;
+}
+
+.email-close-button:hover {
+  background-color: #e63946;
+}
+
+h3 {
+  text-align: center;
+}
+
+
+
+.audio-recorder-button-download {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.audio-recorder-button-download:hover {
+  background-color: #45a049;
+}
+
+
+.audio-recorder-spinner-container {
+  text-align: center;
+  margin-top: 20px;
+}

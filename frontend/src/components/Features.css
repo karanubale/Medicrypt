@@ -1,0 +1,64 @@
+/* Features.css */
+
+#features {
+    background-color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#features .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#features h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+#features .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#features .feature-box {
+    flex: 1 1 calc(25% - 20px);
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+#features .feature-box img {
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+
+#features .feature-box p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+}
+
+#features .feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #features .feature-box {
+        flex: 1 1 calc(50% - 20px); 
+    }
+}
+
+@media (max-width: 480px) {
+    #features .feature-box {
+        flex: 1 1 100%; 
+    }
+}

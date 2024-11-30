@@ -1,0 +1,187 @@
+
+.page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 500px;
+}
+
+.homecontainer {
+    padding: 40px;
+    background-color: white;
+}
+
+.maincontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.col-left, .col-right {
+    flex: 1;
+    padding: 20px;
+}
+
+.col-left {
+    max-width: 50%;
+}
+
+.col-right {
+    max-width: 50%;
+    text-align: center;
+}
+
+
+.section-title {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #4285f4;
+    padding-bottom: 10px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+
+.hero-img {
+    max-width: 100%;
+    margin-top: -80px;
+    height: 450px;
+    object-fit: cover;
+
+
+    animation: fadeInLeft 1s ease-out forwards, upAndDown 2s ease-in-out infinite;
+}
+
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes upAndDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .col-left, .col-right {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}
+
+
+.features, .how-it-works, .teampage, .contact-us {
+    padding: 60px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.features h2, .how-it-works h2, .teampage h2, .contact-us h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.features p, .how-it-works p, .teampage p, .contact-us p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+@media (max-width: 852px) {
+    .col-left, .col-right {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 575px) and (min-width:0px) {
+    .col-left, .col-right {
+        padding: 10px;
+    }
+
+    .heading {
+        font-size: 1.5rem; 
+    }
+
+    .description {
+        font-size: 0.9rem; 
+    }
+
+    .hero-img {
+        height: 250px; 
+    }
+
+    .section-title {
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }
+    .col-right{
+
+        visibility: hidden;
+    }
+    .hero-img{
+        margin-top: 50px;
+    }
+}

@@ -1,0 +1,15 @@
+
+.Toastify__toast-container {
+    z-index: 1050; 
+  }
+  
+  .Toastify__toast {
+    background-color: white;
+  }
+  
+  .Toastify__toast button {
+    background-color: transparent;
+    color: black;
+    border: none;
+  }
+  
